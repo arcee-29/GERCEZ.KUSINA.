@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Food Gallery - Lutong Bahay, Pasta, and Desserts">
+    <title>Home Made Dishes | GERCEZ Kusina</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav id="main-nav">
+        <div class="nav-container">
+            <div class="logo">GERCEZ<span>KUSINA</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-extras">
+                <button id="theme-toggle" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section" style="
+    height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; /* Nilalagay sa gitna horizontal */
+    text-align: center;      /* Nilalagay sa gitna ang text */
+    background: linear-gradient(rgba(3, 3, 3, 0.6), rgba(3, 3, 3, 0.6)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEhIVFRUXGBcYFxgXFxcVGBcVFxcXFxUYFRUZHSggGB0lHhUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGjcdICYtKy0uLSsrLzArKy0tKy0uLS0tLy0yKzUtMC0tKy0vLS0uLS0wLS8vKy0tLSsrKy0tLf/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAACAwABBAUGBwj/xAA9EAABAwIEAggFAwIFBAMAAAABAAIRAyEEEjFBUWEFBhMicYGR8DJSobHBQtHhFGJygpKi8SOjssMHFkP/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAQIDBAUG/8QAKxEBAAICAgIAAwcFAAAAAAAAAAECAxESIQQxE4HwIkFRccHR4QUzYYKx/9oADAMBAAIRAxEAPwD4wrAVBEApQMBGgCJA3MIFr3kzrwtsiCW1MCAwjaELSmBASY1A1MCIMamBKamNQMajhA1NCCBEAqCY1qkQNVhqJrUYAQUGo2hQNTGtQCGIwxMARZfFAo01MibCiBWVTKmwqIQLyKQjhQoALVQaiQuBQCQhIVkKigU881SvKqQVCpQlVKCPSyfBG5yWg8mEQQhEFCRBEEKIIGNRtSwjagY1MCW1G1A1qYEppTWogwJjV3eieq9SowVXFoGUuDHBxzQ4gNdlIImNjI0MFcrH4Q0X9m4y4BuaxADiJLR8wE678tFWL1mdRKItE9QWxMCCmjarpG1NalN96/hNagNqNpSwjaPfgED8sAGRebC5EfMOeytpSgmtcIjLeZmTpGkaeaBjSihLBRgoCKoqhPFSlWaXRM/EDrAcGkgEjQzFtbhVtaKxuVqUte3GFwqITiwRIdM8thueF7eRQ06haQ4ai4t+9kraLRuC9JpOrFQhctFXEScwGV8uLi0gC82a1oGQQSIv5aJNOmXENaJJ2+qsqXKElQlC5yASgkyjJVSgByWU0oHoAKBytyCUFEoZV5kJKgeXCsIQrCJGEQQSiYUDAjCvD0XPcGsaXEzYa2En7IQUDAUbSmV8LlbmFRlRuYtJYXQHRMHM0G4kg6GCt3RdAPYRlBJflmLjNRq5QORLfUBRs9sAWro+rlq03ZXOyva4hgDnENIJytIIJgaLd0nhAWZ6YkDs6hIEQytSZd3AZ2EeLuaz9B9JjD1HVDRdVIY4iACaZH67iwHHmotM8Z1G0W9Pe4bpBjaruzeHMdD8ukOcCbA8QwmP7Z4rznWnGVXuZZopQS0AS4lupe43PxH6krF0F1iZUrzWYKbZa8vBMg5hTE6ACKrpPAldTrPjQ5wp0KtmNeXw5oaQ4AEB36+6SC0E/F4xwYaXrljcOetJi8PP0imNCWWAHunMIbeIuWguETsSRO8TurC9J0HApzmFpgxMA2INnAOFxyIWZhRtQaaD4M5Q4DYyR55SD9f2UCS2qQHAEw4QRsQCHAGNbgHyCum73KDZTfDSIF4uRJEX7p2UlVQr5cpaIe12bNrwyjKbWIJ5zdD792QaDiZkABodEtEkW0guJP13O1lbZiYtpMSPD6LKXDcff/hOL4lrTLJJFiJ2Di2YBhA2QuPiMS+m/M2mBpLgTNjYjgQOM+S6o8vQI6z/AO4d5mUhoDe78ORwAANmgnWZveVW1YtGpXpeaTuHNwNdz6ri4ObqbgXk374E+R+u3VlZxA29+SNz2wIF9yTY8IG1o4/hK1isagvkm87lsdmu15AOQRnBJDYa5gYdpbEbQdkjCXe0d08cwBEQZMEiYEkXFwLpVNmaAIvxIA8ybBC0y1zcwA+K41c0HKAQJB7x5cdlZQFeoJJEak2sPIbLd0j1fxNCiyvVpFtOpGUyDqJbmAMtkcVyqoGXfNJ4REesyvuXT+Wv0TliXVMOxzBxeGNez/cAFCXxKhSc9wawFzjoBcrY7o/L8dai0/LmLiPHI1w+qz9bsecI0YLDkB5aDXqjVxNwwHZvLwOpXiTTk3Jnck3BnebrOLWt3HUNeNa9W7l7evgnNbnGV7PmYQ5oJ2du3zAWJ5XN6tdJVaVUQS4Hu3ktMg9x8/EDcQV3+ncMKdQFgIY9oezkDILZ3ggjwhK3nlxt7L0jjyr6c1xSyicUtxWrFCUvMoSgJUDzgKIFCFaJFKIJYRoOr1e6fqYOrnpta/MMpa6YIJtBGh9V26vVtpp1arqze0dLqdJgLtXSASYubNsIEleQoHvNMxfVdnq9XcXuaDNy5s3JbcOAvr8J8ncVy5+Vd3r1+P8AlnaO9wrDYVzaeJa8ZC3sZD+6c0vcAAdXFofA3Wjq7UIzxs/DO8m1S0n0qFe1x2FGN6OrVDAdRe0tIgF7mNIzOM/LUcPEbrxnVrCGq6oA7L3Wt0kd7MQSdoLG23k8FOHNGSsz6b/DvWIm0a39fs6L6TezLXgwKbgcsZowuJc0ls2nK+Lrz2IoFuXMCMzczZ3aSWgx4td6L2uK6CeO8XDvZ7bxVaM3+4Lw7Ba2/u62pO1ZO6PoAue2JzU3geLYqAf9tMpNiwSWOIMgkEaESCDyOyaxytEdqtbQMs5hmmMsGYj4p05QrpPFiRIBuAQDE3gkGPGCkgqg7grDTmEmJi8SQTG0wizch6pDTzRtKB1UQ4gFrgNxMHmMwB9QrY5JDtEYd4+iDQHI6ZbIzEgcQAT5AkT6rM1xRDl5oNFKtlMiJgi4Bs4EGxETB121CsOSW80xrvBAwVVXa+CzV3Rv79Umq6BM28Y+6DrYdzD8ZcLj4Wh1r5tSL6R56b3mloFrTeACZixOp0t4niudh6w2g+YnzEStTq2wnzJn0BAQMDiCCCQRBBuCCNCDCGq8klzpJNyTqSbkoTVMQqq1Jv3RYCwA+EADzMSTuSSgXiQWkggtI1BsR4gr6HiunMmEwdOb9hhh/wBlhH1IXzbG1sxLoA5Amw4CSSuv12DqXYNuB/T4eDzbSY0+YLVS0biYXpOrRLh9cKJ/rKszD+ze3m002ZSBw1HkVyDh9b6axpExYg+S9R0Ti6HSFJtCtUbRxFO1Ko74XNkns6nASTDtpQVuo+OYYGEc/YOYWOaRGrSHWHjHrKpS8RHGephpkpMzyjuJcPorBF1ei0XJqU//ACBP0m69r16pimaFPcMcT4Odb7FbehOhKfRY/q8e9rasEUqIcHuBMgmx7zotAsATJ3HkOlulX4ms+s/9WgmcrRZo9Pyqx9vJyj1CZ+xj4z7kklA5UXIS5bucL0Eq3FLJQcIIgEIRBEpCaynIcZAyibkAm4ENB+I3mOAPBLWjo9rTVYH/AA5hm5gXI84jzUTOo2mI3OjqWALmCWESZDyTdsRlym0TBnVfRepXV7CVsLla0HEtkucfia+5aWHUCwjz5riGo0lpc3MDqJtA08hAT8O11KoK2HeWP3giCDteR/IC8y/lc/sz09jJ/R5mm6W3LqdWop4XFNq0wJbnFN+YNFZktczLxFSmYE6Ecl5vqb0pTw+LDMS9zcPmeHC5aKlg17wP8MTtK73UzEdocdQxVR2YTiG1Ach70FxBNm3bTMGAO8vB9LD/AKtT/Efrf8rXx/7l6/X3OfP341Jn3E6/7+z9C9Z8RgcDhP6ioJBtTa27qjyMzQ3YCBM6AeS/Pr6LmHK8Q4RIOotP7L0XWfFOf0d0UCTDWV2+bewA34SP+V5hhC7KRqHBYxpTGhKlHPNXUPYVL7pbHIw5ATXe+SJrvRBPv8I6dX3FkDmIm+7W9Utr0WZSGzMSR6flQuMiNNCdZ4WQRxn34omk6H8fdA5rufogc83ufogcf5S8yAXkxr9Ajw9ObEEQNdbTrAFtfqgJOv2R0SRpB5H3ZA59MgB14mxBvyIIQMd4z5oajCI25A2QzsCg1ipxRU6ea2cB2ZoaDYOzEj4z3WgW1O/JZQ7Lr9LiPJdPC0BUaO2rNo02te6nLcxeQ7vNYABJsfiIuABygcquwOkFxbMiQMxFtmjXwX13rF0LTxNPs3j4bNdu0i1l8yxb8lLtWVA9zmhgLS1j6N7Ne2M2Yta4S06TdwN/pvS8vY8McAe98Qlp5OHDwQl8BqYJ4e5sEObJ0INitGE6XxTBlZiazG8G1HN+xXsMG2jiaQq0z3gxzC0mXtlstY46ugtblf8AqaINwZ8x0XTHasY5stf3Qdw7aOI2PisIyb3uPSIvMbAxznHM9znuOrnEucfEm61tXbxXQkju2dvvPIBcAOVsWWuSu4ItyNc5DmS3lQFapEXJZcrckueEHLVhCiCJWhzQQeCtA4Il6LD4nuQTaxHDiLRy+q6mBxgcIzA6aW2v4XkciuFg6Tm5G1HNa1wGSoTlBBlwBJEtEzciBPDTt/8A1TFEgimQCbPBYWakA5mkgC4466LzM2OsTqen0HjeXNqxMfN2egKgp4jPZznUq7YmQ4Ny1A08ZNRw8F5TrZhsmKqR8L8tRhO9Oo0Ob6XB5tK7VKq7D4/C03OaTDpIu2agywAdgWR5Lkdce0/qP+qCHFg7sQG3dLWj9LZkgDip8aJrljf31/X+GHnayYZtX1Fv5/Vp6Sdm6NwrvlqOZ5EPP/rXDaV3Q3N0UP7Kod61H0//AGLgMC9J4pko5SiUbUBzwKIPSwpNkQfwTQstN2/knscgYD7/AIUzbpZcdD+VbePv6IDaeVlYf4/RCOf5VhoJ1QGTKvMhnheOasi2gOvh5KQTCiFtp8b/AGH5SWHwR5+O/kgbWdISJVvM+ylPqAafn8oNdHL+oSL6ENvFrkHQxaPSZQnD2Li4C4hvekg6kQItbUg3HkhtT2ENSoTvHgoB1HNaJyh2kgkwRNwS0gjyIK+kdJYotY8g2AeT5TyXzGQPjbmFxBLhBNgbHYwY3hfYeuHV80MFWe90SCwd0kl1R2Vthc3cNE2S+OdH1OyrUntkEPpzBiW5hIdyK7VPBdnVb+o0XPLdgQ5xc0kHgHe4TG9Ui+kage0tBuWnvNYNbWvHIrTicfSbinOfGRzd5cHZKbCTA5lw8iuDPfnOqT+f182vk+LmwxFr11v6+XzdNuKbVa5gs+4k3jaTeCvDEQSOBI9LJ1DpvEyXOqAztlbbwgLKHLfBitTcS56UmuzShLlJQEroaI9yzuKY4pZPJBzpRBArBQFKpRN7IiwEn6eHNRM6WrWbelNqt7gcHEDMDDtnfKIsRfUkHktmD6RrYZwdTdLJggHMyfiiDYO3n+VmeHtAMNgmB3GkGNdRzWii6jV7lVraLv01WAhk7CrT0APzNiNwVS0xMd9w0ilqz11Lr9ZajqraWMZMiGk8y51Sm7zJqN/yjiE/rVFWhQxQHxF7fJ0VPo41R5LX1dwc4apRrNPdc9rhxacpdkJsYljxzYNlxcS51OhVwdQjNTqNqNI0c0izm8iH5vAjguWuuUa91nXyl30tul6z6tG/9q96dTohmbo+oP7X2m5LX5xA8h9V5lrl7Hqrh5oU26Zy/caSdb/3e9F419LKS06tJB8QYP2XXWfbzJg2UQKSEYPNXVGHe/3Q9rGpVqpt7/ZAyi+3LZOD0htXx9Si7Qc0DW1A46IS68aeSUBeY+6Jod8yIND+SOnV9/ylsmLn8fhWXX098kDnnf2VWaeA8FQv7Ks0/wCffmgjHWsEZfN/foqA2/lRtjr+yCwZVVGjifXf0VyeX3Vxw9+SBLm2/lSOZj3qje3iVTjyQI6Rqudnc5xc50lxJkknUknVen6yuxlWlg2dtUrhwzdm97XAubEF5axkiI+JztdV5bFjunwXs6ONFPsGuN+xZHgSZHISAVh5OSceObRG3Z4OCufNGO06gl/VjG0aed2R5i+Vxg/5oAK4nSM6uEFtJtIAjR7xnqHyDiD/AIgvfv6ac+kWOeAxok+H5XhOnameraIgERfNI+KRvYD/ACrz/DyTkyT119dPX/rVLRixxa29T63934uSBZC1MegAXrvnRSoVHEDVLc9BVQJcKOJSygxyrlUFRQPwrJdPyjMYnbw5kLd2LQRJFzNiZ4gEfmNvVHQpmr2ZMCo11Oebvh+oA807CvOYMc4tcDYEd3OJEQNNfe+N57dnj61826r2b8sEa3dEEjmdBA+61VOjsODD394QSBoZjRcVuEcSA2M+YMyyM0mdhtbUSuvjsM9lHvHtHUzoAQW04DiZN4/bmY5r9aiLHmZpmOMdTL0uExTaQpU22NVxAJvJDLCdhDWtgcQsnWrAdpS7ZoBfTBNwDmpGS8GR+mS7wL+S8XisbUJpEuMs7zQTOW4IH0+y+oYeo1zWVG/DUaHgxxuR5H7rLJFsNq39nh4onHbHPv24XQb/APpUi75GmNom+UaDf0XnustPLiandHeh3+oCTH+LMvddH9GBrhTDbAaC8NLjECJgGRO4b4T4brVig/EugghgFORoS2Z9CSPJd2O3Kdw57149S5gfyHojFeREMs7N8LZmIguiSP7ZjkgpVcpDsodBBgiQYMw4bg6ELZ0hUmM1Rr3M7gDLtbTADm5HizhLnCOWpm2zNkb4e/VEHf2j/d+6Oth3sDS9haHCWHZwytdYi1g9sjUTeDZJZV5oGMF7DyBP5KY3XQH1R0w9oa4Oyh+YWeAe7GbMAZAuPiibxotGNbiKfdqueIA1eXAgiWwQS1wggggkEEESECWsdplGnA/VUOY9Af3Wd2Jd8xvwJv4pTayDoCsAfhHmHKHED5dOUHzO6xA/8KwUHUw9RpMmRwgT6yQm1azfmLjwLY8gcyzUMRlEFrD9/wDlWa7T/wDmzxl8/wDkgn9QNAANbzfkLnaEFaq3a/G0flC+sPljjc/koDXsBlA5gmT43j7ICFW2/qluxMaSPPw5ePqrZVnX7k/YpOWZQPOKZu14MfODf/RpyQCpN/ygwlEZhnByg3DSA6NoJBA22RMagGtcRe/ku51swlXPhskjuRJOm5kcAAuNh6eaoxvFw47X/C9z/wDI2HNClh6kWEgm158NNdFS+9Tpv4/H4leU6jftw8f0djKNFr35Mhi4IJI1tcwsHRrzlmqWhrQ6HxYTbWNZIO+m8o2dLGox7QC7KJNwMoGpg3PBcVmMdlyBrWtiwA1daXOO5gEea5MVLcZjWnqeflwfEratuXX5/k3ufSa4S41Gb5e74Q7f6LI13M8uKEugABonj3p+8KB07fddsPFkRQFRxVSpQsnb370QEqIcyDIqKtUVAqV3WdIUq7SKp7OrF3wCyoRMF+7XX1EA77LhFCq2pFmmPJNPTp4UmnUDszbTBBDhp/K6mK6xWIYAS4DazTDgSCI1BXmIRtCpOKtp3LO8RedyZmJuTdfRepWLFTB5Ce9Ref8AT8X2Lh5L501beielX4ZxcwTmEEaaTH3Pqo8jF8Smob+Pl+Hfcvo3Xim44UVqNRzSyCS0lpNN0NcDG12nyK+YhdDF9YK9VnZF2Wn8o3GgBO4gCy56ePjtjpxseRet77qJoK7XROBo1WOaXQ8Me8uccjaQY4AZhB7Rrs7LhwLSH90gDNycJXLHtcJtqAS0uaQQ9uYaZmlzZ5oakHa2wN44Cd/GFuwd7G0u1HZ06hf2RbSpC0VXBrWPNKk0F7XODKJGrTkec0kNWOpi29kWZhUzdnllpY+n2dNjQQRYjLNOMxns8xAJBWSviy+7rumc985hrWtBcTo0MERxOtoa3E1KrnB1WO0LS9zyQ0lvwmoQCTEm8HVBnan067spbaDa9yPBZwU2jSc4OcBZglxkWBIaDrJuQLTqgU2k6M0GAQCYtJkgTxhp9FbWCFZcjqZc3czFtozANdoJkAkWMjW4g20AAykXODWiXOIaBuSTAA84Wh+GDWNdmmoXuBZBhrW2lxt3idAJsDMWSdzutDa7TlZlbTaSzO+HPdIkOeDrBzSWC3dEIBkKnP29/VViaYa8hrw8A2cAQHcwDB9QqZUIkNOog2BkBwdqbi7RpGkaEgg2s0Q0hroIuXiAXg94MLSZAka34hMZhSAczJhod3HMIDXCZOWYtrw3CyF7oAJOUSQNgTGYgbEwJ4wOCe7Fd0Na5whpBItId8QMG4PAoEg+CY4kBLmP5H8qyDGaDlJIDoIBIgkA6E3FuYQMuAD3byPiBcIiZaDLddSADBjQws63hQH3CrLv+6C8PiBTrMe74Qb2m0RpK9D1o6bZWwwYSc7iMoykDKDOYE+f2Xl61OQl5TaSTFhN4HAfVQkWFZ8TpPw96LTLhHkVdMIqdQhrmjR+WbSYaZAnYTB8gqFvYSIQhPu6g0QlEpFSoqJVSgsoFcoSgzKQorUCoVQiVIKARNCitSChQBUFaAwFcoArQGCiSwilAwFOwz/0FzWse5uZxbmy5SYNgXADMbN152WcK0GyvTyTDJZUvTe5sOLGucAW5XEAn9TbxbxOVUXmACTAmBJIE3MDQTZVKBz6WWLtMtDrEGASbOjQ2mDe4VBLBUze4QaH03BocWkNdIa6DBLfiynQxInxSWnipI4KwgbRiRmkNm+WJjlJ1S5O9/NU7xCqOYQOptJNspPiCPTf0T6+HfmdDAbm7A4M1/QIEN4CB4LAQtNHpGsxuVtR4bwBtG9kC+8Nh5wi/q3REiBeLG/H7X5LO71PNTJyQaTij/afK6E4nkPX8QlZeQUAHBAZqzrH1Sy5WQgjkgufBXKAeasBBbjCqVRVhBJVAKQogtUohQZwrUUUCKlFEFhWoogsK1FFIIKlaiCkQKiiAw5WSoogqVFFEFgq5UUQUCrBUUQSOSg8PsooguSpKiiCZkKiiC5ULvd/3VqIBUUUQQFWoogEoiFFEFKlFEFKKlEH/9k='); 
+    background-size: cover; 
+    background-position: center; 
+    color: rgb(102, 100, 100);">
+
+
+        <div class="container" style="max-width: 900px; padding: 0 20px;">
+            <span class="reveal"
+                style="text-transform: uppercase; letter-spacing: 3px; font-weight: 500; font-size: 1rem; color: var(--primary);">Filipino's
+                Best Home Cooking</span>
+
+            <h1 class="reveal"
+                style="font-size: clamp(3rem, 10vw, 5rem); font-weight: 900; margin: 20px 0; line-height: 1.1;">
+                GERCEZ <span style="color: var(--primary);">KUSINA</span>
+            </h1>
+
+            <p class="reveal"
+                style="font-size: 1.2rem; margin-bottom: 35px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto; color:rgb(241, 159, 36)">
+                Mula sa aming pamilya, para sa inyong pamilya. Lasapin ang sarap ng tunay na lutong bahay na nagbibigay
+                ng init sa bawat hapag-kainan.
+            </p>
+
+            <div class="hero-btns reveal" style="display: flex; gap: 15px; justify-content: center;">
+                <a href="#about" class="btn secondary-btn"
+                    style="padding: 15px 35px; border: 2px solid white; color: rgb(15, 15, 15); border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;">Aming
+                    Kwento</a>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about-section"
+        style="padding: 100px 0; background-color: var(--bg-light); overflow: hidden;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+            <div class="about-flex-container" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+
+                <div class="about-photo-column"
+                    style="flex: 1; min-width: 300px; max-width: 550px; position: relative; margin-left: -20px; /* Flush sa kaliwang gilid */">
+
+                    <div class="img-overlay-text top-overlay">Family of Gercez Kusina</div>
+
+                    <div class="about-slider" id="aboutSlider"
+                        style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; border-radius: 0 20px 20px 0; /* Rounded lang sa kanan */ box-shadow: var(--shadow);">
+
+                        <div style="flex: 0 0 100%; position: relative; scroll-snap-align: start;">
+                            <img src="https://scontent.fmnl17-2.fna.fbcdn.net/v/t39.30808-6/671483059_122183228924874160_5397665045849409622_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFJNNJNfNIRUMruzysx1HY_pMr8FVWOmnSkyvwVVY6adN5soZHIqM8O0mCsab39uI5ckjPtgai_fUmPZCrTp6AL&_nc_ohc=k9VWBYNKJEMQ7kNvwGYNdaI&_nc_oc=AdrgbVTQTz8CFhfUyR6H4G5ubsuWQ3cfSqPnkXjDOcikGFyMUGdWdbVe2_2EVyogdRk&_nc_zt=23&_nc_ht=scontent.fmnl17-2.fna&_nc_gid=aTTBvwwinSZn6hd7fWhYuQ&_nc_ss=7a3a8&oh=00_Af29AzV86fDBJFi9TURDazPV1CZsuk2s2Zzz6_tlp8kfCw&oe=69EA37E2"
+                                alt="Family"
+                                style="width: 100%; height: 450px; object-fit: cover; display: block;">
+                        </div>
+
+                        <div style="flex: 0 0 100%; position: relative; scroll-snap-align: start;">
+                            <img src="https://scontent.fmnl17-3.fna.fbcdn.net/v/t39.30808-6/675656762_122183228984874160_3661585395888374059_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHBBlrY7kegnoPadr4zJtxKryxbk9cDn-CvLFuT1wOf4HclsLz7N7oykbguRilAhLqppTvZnE6ptie1vY3pJpM-&_nc_ohc=czNDv5DGcigQ7kNvwE0ycWV&_nc_oc=Adqb8H61aYIcUqI4nkV3fpWF3CoaOOJi6C9KZHY52fhUbS6XzipPEzh3EVpJxXjMPjQ&_nc_zt=23&_nc_ht=scontent.fmnl17-3.fna&_nc_gid=AfZPVCxIy-Rf1mPPv5I5Nw&_nc_ss=7a3a8&oh=00_Af1jzevjOMkmsv5hOCEfb96e3eRCGm1XabAHM2QK4amdjg&oe=69EA2BC2"
+                                alt="Family"
+                                style="width: 100%; height: 450px; object-fit: cover; display: block;">
+                        </div>
+
+                    </div>
+
+                    <div class="slider-dots"
+                        style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;padding-bottom:15px">
+                        <span class="dot active" data-index="0"
+                            style="width: 12px; height: 12px; background-color: rgba(241, 127, 50, 0.932); border-radius: 50%; cursor: pointer; border: 2px solid white; transition: 0.3s;"></span>
+                        <span class="dot" data-index="1"
+                            style="width: 12px; height: 12px; background-color: rgba(241, 127, 50, 0.932); border-radius: 50%; cursor: pointer; border: 2px solid white; transition: 0.3s;"></span>
+                    </div>
+                </div>
+
+                <div class="about-text-column reveal" style="flex: 1.2; min-width: 300px; padding: 20px 0;">
+                    <span class="subtitle"
+                        style="color: var(--primary); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">From
+                        Our Kitchen To Your Heart</span>
+                    <h2
+                        style="color: var(--text-dark); margin: 10px 0 25px; font-size: 3rem; line-height: 1.2; font-weight: 800;">
+                        Ang Kwento ng<br> GERCEZ <span style="color: var(--primary);">Kusina</span></h2>
+
+                    <div class="story-content" style="color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">
+                        <p style="margin-bottom: 20px;">
+                            Nagsimula ang Gercez Kusina sa simpleng lutong-bahay ni Mommy—yung tipong
+                            pang-araw-araw na pagkain na masarap at swak sa panlasa ng buong pamilya.
+                        </p>
+                        <p style="margin-bottom: 30px;">
+                            Dahil sa hilig ni mommy sa pagluluto, naisip naming ibahagi ito sa iba sa pamamagitan ng
+                            pagtanggap ng orders. Hindi man ito malaking negosyo, pero sinisigurado namin na malinis,
+                            maayos, at masarap ang bawat luto.
+                        </p>
+                        <p>
+                            Sa Gercez Kusina, simple lang ang goal namin: makapaghatid ng lutong-bahay at desserts
+                            na maaasahan
+                            at kayang magpasaya sa kahit simpleng handaan o kainan.
+                        </p>
+                    </div>
+
+                    <a href="#contact" class="btn"
+                        style="padding: 15px 35px; background: var(--primary); color: white; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);">Order
+                        Now</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="gallery" class="section hero-bg-style">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Food Gallery</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="lutong-bahay">Lutong Bahay</button>
+                    <button class="filter-btn" data-filter="pasta">Pasta</button>
+                    <button class="filter-btn" data-filter="meryendas">Meryenda</button>
+                    <button class="filter-btn" data-filter="desserts">Desserts</button>
+                </div>
+            </div>
+
+            <div class="gallery-grid">
+
+                <div class="food-item lutong-bahay reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://www.angsarap.net/wp-content/uploads/2018/11/Special-Laing-Wide.jpg"
+                            alt="Laing">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Laing">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Laing</h4>
+                    </div>
+                </div>
+
+                <div class="food-item lutong-bahay reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://www.foxyfolksy.com/wp-content/uploads/2015/08/tinola-2.jpg" alt="Tinola">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Tinola">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Tinola</h4>
+                    </div>
+                </div>
+
+                <div class="food-item lutong-bahay reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://theanglerchef.wordpress.com/wp-content/uploads/2016/08/0004.png" alt="Paksiw">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Paksiw">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Paksiw</h4>
+                    </div>
+                </div>
+
+                <div class="food-item lutong-bahay reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-ohDM6bWf8u6iJjyWgi2iIKhSeEx6K86FdVgeBz753IiE9hJHZRLzwfqbmptf1ILaeG45NNti4ggxeFj-DTaZI2DwnUABvBQVf2d6EX2B8hvXpQHxeLIJ9lu_8CX3crWWxrfS8EWZNdU/w1200-h630-p-k-no-nu/humbaaa.jpg"
+                            alt="Humba">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Humba">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Humba</h4>
+                    </div>
+                </div>
+
+                <div class="food-item lutong-bahay reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://i.ytimg.com/vi/McDkGgUFE0s/maxresdefault.jpg" alt="Adobo">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Adobo">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Adobo</h4>
+                    </div>
+                </div>
+
+                <div class="food-item lutong-bahay reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://img.taste.com.au/obuZy7p1/taste/2023/01/beef-caldereta-recipe-184268-1.jpg"
+                            alt="Caldereta">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Caldereta">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Caldereta</h4>
+                    </div>
+                </div>
+
+                <div class="food-item lutong-bahay reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://panlasangpinoy.com/wp-content/uploads/2017/07/Afritadang-Baboy-500x485.jpg"
+                            alt="Afritada">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Afritada">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Afritada</h4>
+                    </div>
+                </div>
+
+                <div class="food-item lutong-bahay reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://panlasangpinoy.com/wp-content/uploads/2021/08/Chopsuey-Panlasang-Pinoy-jpg.webp"
+                            alt="Chopsuey">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Chopsuey">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Chopsuey</h4>
+                    </div>
+                </div>
+
+                <div class="food-item pasta reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt4xO36M91M9NoXyVBCFChLBH4bR0qm_Ueig&s"
+                            alt="Lasagna">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Lasagna">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Lasagna</h4>
+                    </div>
+                </div>
+
+                <div class="food-item pasta reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://www.kawalingpinoy.com/wp-content/uploads/2021/09/instant-pot-filipino-spaghetti-2.jpg"
+                            alt="Spaghetti">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Spaghetti">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Spaghetti</h4>
+                    </div>
+                </div>
+
+                <div class="food-item pasta reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://theplantbasedschool.com/wp-content/uploads/2025/12/Spaghetti-aglio-e-olio-ready-to-eat-for-a-quick-Mediterranean-style-dinner.jpg"
+                            alt="Aglio Olio">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Aglio Olio">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Aglio Olio</h4>
+                    </div>
+                </div>
+
+                <div class="food-item pasta reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://i.ytimg.com/vi/BpXydWdcm7U/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCQQ4QE58lCscZQnmo6gVglfsedDg"
+                            alt="Spicy Tuna Pasta">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Spicy Tuna Pasta">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Spicy Tuna Pasta</h4>
+                    </div>
+                </div>
+
+                <div class="food-item pasta reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://sweetandsavorymeals.com/wp-content/uploads/2023/02/chicken-carbonara.jpg"
+                            alt="Carbonara">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Carbonara">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Carbonara</h4>
+                    </div>
+                </div>
+
+                <div class="food-item meryendas reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://www.kawalingpinoy.com/wp-content/uploads/2014/11/cheese-puto-2-1-500x500.jpg"
+                            alt="Puto Cheese & Puto Pao">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Puto Cheese & Puto Pao">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Puto Cheese & Puto Pao</h4>
+                    </div>
+                </div>
+
+                <div class="food-item meryendas reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://panlasangpinoy.com/wp-content/uploads/2015/02/kutsinta-1024x768.jpg"
+                            alt="Kutsinta">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Kutsinta">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Kutsinta</h4>
+                    </div>
+                </div>
+
+                <div class="food-item meryendas reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://www.thedailymeal.com/img/gallery/what-exactly-is-takoyaki-and-what-usually-goes-into-it/l-intro-1719843074.jpg"
+                            alt="Takoyaki">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Takoyaki">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Takoyaki</h4>
+                    </div>
+                </div>
+
+                <div class="food-item meryendas reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://yummykitchentv.com/wp-content/uploads/2020/10/buchi-recipe-1024x731.jpg"
+                            alt="Butchi">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Butchi">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Butchi</h4>
+                    </div>
+                </div>
+
+                <div class="food-item meryendas reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2022-12-patilaw%2Fpalitaw_005"
+                            alt="Palitaw">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Palitaw">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Palitaw</h4>
+                    </div>
+                </div>
+
+                <div class="food-item meryendas reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://theunlikelybaker.com/wp-content/uploads/2025/07/Macapuno-Balls-Feature-2.jpg"
+                            alt="Macapuno">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Macapuno">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Macapuno</h4>
+                    </div>
+                </div>
+
+                <div class="food-item desserts reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_16:9/tk%2Fphoto%2F2025%2F05-2025%2F2025-05-filipino-mango-royale%2Ffilipino-mango-royale-566"
+                            alt="Graham">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Graham">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Graham</h4>
+                    </div>
+                </div>
+
+
+
+                <div class="food-item desserts reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe1nVZWKdhiqMd6h-ZDY7JJc-UW_XGMWQFzQ&s"
+                            alt="Choco Mousse">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Choco Mousse">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Choco Mousse</h4>
+                    </div>
+                </div>
+
+                <div class="food-item desserts reveal">
+                    <div class="food-img-wrapper">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsG3t0eKU1NTzfvgYmogDfRD3VvzTmPIavRg&s"
+                            alt="Ice cream">
+                        <div class="overlay">
+                            <button class="view-details" data-id="Ice cream">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="food-meta">
+                        <h4>Ice cream</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Visit us or order online for the best experience.</p>
+
+                    <div class="info-list">
+                        <div class="info-link"><i class="fas fa-map-marker-alt"></i> 316 Sitio ibaba, Sto. Nino, Taysan,
+                            Batangas</div>
+                        <div class="info-link"><i class="fas fa-phone"></i> +63 906 0277 438</div>
+                    </div>
+                </div>
+                <form action="https://formsubmit.co/24-09347@g.batstate-u.edu.ph" method="POST" id="main-contact-form"
+                    class="reveal">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <input type="hidden" name="_next" value="https://arcee-29.github.io/Buenviaje-s.kusina-/">
+
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="food-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <div class="fab-container">
+        <div class="fab-options">
+            <a href="https://www.facebook.com/share/1DZhiBiEQj/" class="fab-item facebook"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://m.me/cez.rbuenviaje" class="fab-item messenger"><i
+                    class="fab fa-facebook-messenger"></i></a>
+            <a href="cezbuenviaje4@gmail.com" class="fab-item email"><i class="fas fa-envelope"></i></a>
+            <a href="09914799698" class="fab-item phone"><i class="fas fa-phone"></i></a>
+        </div>
+        <div class="fab-main"><i class="fas fa-plus"></i></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 GERCEZ KUSINA. Crafted for Food Lovers.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
